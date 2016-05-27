@@ -1,6 +1,7 @@
 package cc;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class TypeVariable {
@@ -16,7 +17,7 @@ public class TypeVariable {
 		u.methodV1();
 		u.methodV2();
 	}
-	
+
 	static <K, V> Map<K, V> newHashMap() {
 		return new HashMap<K, V>();
 	}
@@ -24,9 +25,14 @@ public class TypeVariable {
 	public static void main(String[] args) {
 		//<String, String>newHashMap();		//报错
 		TypeVariable.<String, String>newHashMap();//x.<>就没事...
+		//https://docs.oracle.com/javase/tutorial/java/generics/methods.html
 		setMap(TypeVariable.<String, String>newHashMap());//略神奇
 	}
 	
+	
+	<T> void method(List<T> t) {
+		
+	}
 	static void setMap(Map<String, String> map) {
 		
 	}
