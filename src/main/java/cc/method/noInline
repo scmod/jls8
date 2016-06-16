@@ -1,0 +1,101 @@
+CompilerOracle: dontinline *InlineGetter.method
+CompilerOracle: compileonly *InlineGetter.main
+CompilerOracle: compileonly *InlineGetter.method
+     84    1    b        cc.method.InlineGetter::main (11 bytes)
+Loaded disassembler from C:\Program Files (x86)\Java\jdk1.8.0_73\jre\bin\client\hsdis-i386.dll
+Decoding compiled method 0x02833148:
+Code:
+Argument 0 is unknown.RIP: 0x2833250 Code size: 0x000000d8
+[Disassembling for mach='i386']
+[Entry Point]
+[Verified Entry Point]
+[Constants]
+  # {method} {0x152401ec} 'main' '([Ljava/lang/String;)V' in 'cc/method/InlineGetter'
+  # parm0:    ecx       = '[Ljava/lang/String;'
+  #           [sp+0x20]  (sp of caller)
+  0x02833250: mov     dword ptr [esp+0ffffc000h],eax
+  0x02833257: push    ebp
+  0x02833258: sub     esp,18h
+  0x0283325b: mov     edx,15240290h     ;   {metadata('cc/method/InlineGetter')}
+  0x02833260: mov     ecx,dword ptr fs:[0h]
+  0x02833268: mov     ecx,dword ptr [ecx+0fffffff4h]
+  0x0283326b: mov     eax,dword ptr [ecx+34h]
+  0x0283326e: lea     edi,[eax+8h]
+  0x02833271: cmp     edi,dword ptr [ecx+3ch]
+  0x02833274: jnbe    28332abh
+  0x0283327a: mov     dword ptr [ecx+34h],edi
+  0x0283327d: mov     ecx,dword ptr [edx+60h]
+  0x02833280: mov     dword ptr [eax],ecx
+  0x02833282: mov     dword ptr [eax+4h],edx
+  0x02833285: xor     ecx,ecx           ;*new  ; - cc.method.InlineGetter::main@0 (line 6)
+
+  0x02833287: mov     ecx,eax           ;*invokespecial <init>
+                                        ; - cc.method.InlineGetter::main@4 (line 6)
+
+  0x02833289: mov     dword ptr [esp+10h],eax
+  0x0283328d: nop
+  0x0283328e: nop
+  0x0283328f: call    27cb7c0h          ; OopMap{[16]=Oop off=68}
+                                        ;*invokespecial <init>
+                                        ; - cc.method.InlineGetter::main@4 (line 6)
+                                        ;   {optimized virtual_call}
+  0x02833294: mov     ecx,dword ptr [esp+10h]  ;*invokevirtual method
+                                        ; - cc.method.InlineGetter::main@7 (line 6)
+
+  0x02833298: nop
+  0x02833299: nop
+  0x0283329a: nop
+  0x0283329b: call    27cb7c0h          ; OopMap{off=80}
+                                        ;*invokevirtual method
+                                        ; - cc.method.InlineGetter::main@7 (line 6)
+                                        ;   {optimized virtual_call}
+  0x028332a0: add     esp,18h
+  0x028332a3: pop     ebp
+  0x028332a4: test    dword ptr [9b0100h],eax  ;   {poll_return}
+  0x028332aa: ret
+  0x028332ab: mov     edx,edx
+  0x028332ad: call    282c9c0h          ; OopMap{off=98}
+                                        ;*new  ; - cc.method.InlineGetter::main@0 (line 6)
+                                        ;   {runtime_call}
+  0x028332b2: jmp     2833287h
+  0x028332b4: nop
+  0x028332b5: nop
+  0x028332b6: mov     esi,dword ptr fs:[0h]
+  0x028332be: mov     esi,dword ptr [esi+0fffffff4h]
+  0x028332c1: mov     eax,dword ptr [esi+1a4h]
+  0x028332c7: mov     dword ptr [esi+1a4h],0h
+  0x028332d1: mov     dword ptr [esi+1a8h],0h
+  0x028332db: add     esp,18h
+  0x028332de: pop     ebp
+  0x028332df: jmp     282c140h          ;   {runtime_call}
+  0x028332e4: hlt
+  0x028332e5: hlt
+  0x028332e6: hlt
+  0x028332e7: hlt
+  0x028332e8: hlt
+  0x028332e9: hlt
+  0x028332ea: hlt
+  0x028332eb: hlt
+  0x028332ec: hlt
+  0x028332ed: hlt
+  0x028332ee: hlt
+  0x028332ef: hlt
+[Stub Code]
+  0x028332f0: nop                       ;   {no_reloc}
+  0x028332f1: nop
+  0x028332f2: mov     ebx,0h            ;   {static_stub}
+  0x028332f7: jmp     28332f7h          ;   {runtime_call}
+  0x028332fc: nop
+  0x028332fd: nop
+  0x028332fe: mov     ebx,0h            ;   {static_stub}
+  0x02833303: jmp     2833303h          ;   {runtime_call}
+[Exception Handler]
+  0x02833308: call    282d940h          ;   {runtime_call}
+  0x0283330d: push    537487fch         ;   {external_word}
+  0x02833312: call    2833317h
+  0x02833317: pushad
+  0x02833318: call    53632130h         ;   {runtime_call}
+  0x0283331d: hlt
+[Deopt Handler Code]
+  0x0283331e: push    283331eh          ;   {section_word}
+  0x02833323: jmp     27cc2b0h          ;   {runtime_call}

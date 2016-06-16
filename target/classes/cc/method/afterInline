@@ -1,0 +1,143 @@
+CompilerOracle: compileonly *InlineGetter.main
+CompilerOracle: compileonly *InlineGetter.method
+     97    1    b        cc.method.InlineGetter::main (11 bytes)
+Loaded disassembler from C:\Program Files (x86)\Java\jdk1.8.0_73\jre\bin\client\hsdis-i386.dll
+Decoding compiled method 0x02833148:
+Code:
+Argument 0 is unknown.RIP: 0x2833260 Code size: 0x00000138
+[Disassembling for mach='i386']
+[Entry Point]
+[Verified Entry Point]
+[Constants]
+  # {method} {0x152401ec} 'main' '([Ljava/lang/String;)V' in 'cc/method/InlineGetter'
+  # parm0:    ecx       = '[Ljava/lang/String;'
+  #           [sp+0x30]  (sp of caller)
+  0x02833260: mov     dword ptr [esp+0ffffc000h],eax
+  0x02833267: push    ebp
+  0x02833268: sub     esp,28h
+  0x0283326b: mov     edx,15240290h     ;   {metadata('cc/method/InlineGetter')}
+  0x02833270: mov     ecx,dword ptr fs:[0h]
+  0x02833278: mov     ecx,dword ptr [ecx+0fffffff4h]
+  0x0283327b: mov     eax,dword ptr [ecx+34h]
+  0x0283327e: lea     edi,[eax+8h]
+  0x02833281: cmp     edi,dword ptr [ecx+3ch]
+  0x02833284: jnbe    28332d3h
+  0x0283328a: mov     dword ptr [ecx+34h],edi
+  0x0283328d: mov     ecx,dword ptr [edx+60h]
+  0x02833290: mov     dword ptr [eax],ecx
+  0x02833292: mov     dword ptr [eax+4h],edx
+  0x02833295: xor     ecx,ecx           ;*new  ; - cc.method.InlineGetter::main@0 (line 6)
+
+  0x02833297: mov     ecx,eax           ;*invokespecial <init>
+                                        ; - cc.method.InlineGetter::main@4 (line 6)
+
+  0x02833299: mov     dword ptr [esp+18h],eax
+  0x0283329d: nop
+  0x0283329e: nop
+  0x0283329f: call    27cb7c0h          ; OopMap{[24]=Oop off=68}
+                                        ;*invokespecial <init>
+                                        ; - cc.method.InlineGetter::main@4 (line 6)
+                                        ;   {optimized virtual_call}
+  0x028332a4: nop     dword ptr [eax+0h]
+  0x028332a8: jmp     2833306h          ;   {no_reloc}
+  0x028332ad: nop
+  0x028332b0: jmp     2833320h          ; implicit exception: dispatches to 0x02833310
+  0x028332b5: nop                       ;*getstatic out
+                                        ; - cc.method.InlineGetter::method@0 (line 10)
+                                        ; - cc.method.InlineGetter::main@7 (line 6)
+
+  0x028332b6: cmp     eax,dword ptr [ecx]  ; implicit exception: dispatches to 0x0283332a
+  0x028332b8: mov     edx,48d50f0h      ;*invokevirtual println
+                                        ; - cc.method.InlineGetter::method@5 (line 10)
+                                        ; - cc.method.InlineGetter::main@7 (line 6)
+                                        ;   {oop("!!!")}
+  0x028332bd: nop
+  0x028332be: mov     eax,0ffffffffh
+  0x028332c3: call    27cba00h          ; OopMap{off=104}
+                                        ;*invokevirtual println
+                                        ; - cc.method.InlineGetter::method@5 (line 10)
+                                        ; - cc.method.InlineGetter::main@7 (line 6)
+                                        ;   {virtual_call}
+  0x028332c8: add     esp,28h
+  0x028332cb: pop     ebp
+  0x028332cc: test    dword ptr [0a70100h],eax
+                                        ;   {poll_return}
+  0x028332d2: ret
+  0x028332d3: mov     edx,edx
+  0x028332d5: call    282c9c0h          ; OopMap{off=122}
+                                        ;*new  ; - cc.method.InlineGetter::main@0 (line 6)
+                                        ;   {runtime_call}
+  0x028332da: jmp     2833297h
+  0x028332dc: mov     edx,0h            ;   {oop(NULL)}
+  0x028332e1: push    eax
+  0x028332e2: push    ebx
+  0x028332e3: mov     ebx,dword ptr [edx+44h]
+  0x028332e6: mov     eax,dword ptr fs:[0h]
+  0x028332ee: mov     eax,dword ptr [eax+0fffffff4h]
+  0x028332f1: cmp     eax,dword ptr [ebx+0ach]
+  0x028332f7: pop     ebx
+  0x028332f8: pop     eax
+  0x028332f9: jne     2833306h
+  0x028332ff: jmp     28332adh
+  0x02833301: mov     eax,5252a00h
+  0x02833306: call    282e610h          ; OopMap{off=171}
+                                        ;*getstatic out
+                                        ; - cc.method.InlineGetter::method@0 (line 10)
+                                        ; - cc.method.InlineGetter::main@7 (line 6)
+                                        ;   {runtime_call}
+  0x0283330b: jmp     28332a8h
+  0x0283330d: nop
+  0x0283330e: nop
+  0x0283330f: nop
+  0x02833310: call    282c610h          ; OopMap{edx=Oop off=181}
+                                        ;*getstatic out
+                                        ; - cc.method.InlineGetter::method@0 (line 10)
+                                        ; - cc.method.InlineGetter::main@7 (line 6)
+                                        ;   {runtime_call}
+  0x02833315: mov     ecx,dword ptr [edx+0h]
+  0x0283331b: mov     eax,6050b00h
+  0x02833320: call    282e290h          ; OopMap{edx=Oop off=197}
+                                        ;*getstatic out
+                                        ; - cc.method.InlineGetter::method@0 (line 10)
+                                        ; - cc.method.InlineGetter::main@7 (line 6)
+                                        ;   {runtime_call}
+  0x02833325: jmp     28332b0h
+  0x02833327: nop
+  0x02833328: nop
+  0x02833329: nop
+  0x0283332a: call    282c610h          ; OopMap{ecx=Oop off=207}
+                                        ;*invokevirtual println
+                                        ; - cc.method.InlineGetter::method@5 (line 10)
+                                        ; - cc.method.InlineGetter::main@7 (line 6)
+                                        ;   {runtime_call}
+  0x0283332f: nop
+  0x02833330: nop
+  0x02833331: mov     esi,dword ptr fs:[0h]
+  0x02833339: mov     esi,dword ptr [esi+0fffffff4h]
+  0x0283333c: mov     eax,dword ptr [esi+1a4h]
+  0x02833342: mov     dword ptr [esi+1a4h],0h
+  0x0283334c: mov     dword ptr [esi+1a8h],0h
+  0x02833356: add     esp,28h
+  0x02833359: pop     ebp
+  0x0283335a: jmp     282c140h          ;   {runtime_call}
+  0x0283335f: hlt
+[Stub Code]
+  0x02833360: nop                       ;   {no_reloc}
+  0x02833361: nop
+  0x02833362: mov     ebx,0h            ;   {static_stub}
+  0x02833367: jmp     2833367h          ;   {runtime_call}
+  0x0283336c: nop
+  0x0283336d: nop
+  0x0283336e: mov     ebx,0h            ;   {static_stub}
+  0x02833373: jmp     2833373h          ;   {runtime_call}
+[Exception Handler]
+  0x02833378: call    282d940h          ;   {runtime_call}
+  0x0283337d: push    537487fch         ;   {external_word}
+  0x02833382: call    2833387h
+  0x02833387: pushad
+  0x02833388: call    53632130h         ;   {runtime_call}
+  0x0283338d: hlt
+[Deopt Handler Code]
+  0x0283338e: push    283338eh          ;   {section_word}
+  0x02833393: jmp     27cc2b0h          ;   {runtime_call}
+

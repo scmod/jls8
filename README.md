@@ -30,8 +30,21 @@ size < REVERSE_THRESHOLD || list instanceof RandomAccess
 这个是看泛型通配符顺路发现的....jdk实现倒转一个集合,如果集合并不是RandomAccess的,那么get需要对调的元素会非常耗费时间,
 所以默认定义了个阈值18,超过18并且不能随机访问的进行倒转会直接用迭代器来get需要对调的元素...考虑略充分...
 
+
 8新增了个ElementType.TYPE_USE,这样的注解可以@C int @A [] @B [] f;注解在[]前..
 具体在9.7.4,从4.11当中那段引用过去的...
 并且getDeclaredAnnotations这个方法及类似的方法是获取不到的,这个方法只能获取到ElementType = 当前实例类型的注解
 比如Field.getDeclaredAnnotations似乎只能获取到ElementType = ElementType.FIELD的注解数量,
 其他的可以通过getAnnotatedType进一步操作来获取
+
+
+A variable of type Object[] can hold a reference to an array of any reference type
+Object[]只能放any reference type,不包括primitive type
+所以上次谁跟我说的在新的jdk里可以支持Integer[] i = new int[10];..坑..
+
+还发现了effectively final的解释.~匿名内部类引用外部数据只要是effectively final的可以不用将外部数据定义成final
+虽然感觉定义不定义没什么意义,具体看看后面会不会提到
+
+第六章讲了些命名的规范,如何让命名有意义~以及一些可见性的东西,好像不是很有看头,主要是外部类私有的东西的内部类可见之类的,然后是像
+The fully qualified name of the type "array of array of array of array of String" is
+"java.lang.String[][][][]".这样一些定义, Fully Qualified Names and Canonical Names的差别什么的
