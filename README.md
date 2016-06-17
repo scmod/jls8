@@ -48,3 +48,7 @@ Object[]只能放any reference type,不包括primitive type
 第六章讲了些命名的规范,如何让命名有意义~以及一些可见性的东西,好像不是很有看头,主要是外部类私有的东西的内部类可见之类的,然后是像
 The fully qualified name of the type "array of array of array of array of String" is
 "java.lang.String[][][][]".这样一些定义, Fully Qualified Names and Canonical Names的差别什么的
+
+
+顺路发现编译器会把new XXX().method()拆成new XXX();method();这样调用如果method()是static的话,
+虽然一般不会通过new调用静态方法

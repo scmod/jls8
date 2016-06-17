@@ -55,3 +55,19 @@ class D<T, U> {
 	}
 }
 
+class Outer {
+	class Inner {
+	}
+}
+
+class A extends Outer.Inner {
+	A() {
+		new Outer().super();
+	}
+}
+
+class B extends Outer.Inner {
+	B(Outer ref) {
+		ref.super();
+	}
+}
