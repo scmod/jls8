@@ -23,7 +23,6 @@ public class AnonymousClassDeclarations {
 	// 匿名类是在一个类创建实例的时候由编译器自己弄出来的....
 	// 永远是一个内部类,永远不是static,永远是隐式的final的
 	void method() {
-		int i = 0;
 		new Thread(new Runnable() {
 			@Override
 			public void run() {
@@ -40,6 +39,5 @@ public class AnonymousClassDeclarations {
 	//如果这个匿名类是在一个static context(static方法块,static方法什么的)
 	//那这匿名类其实会是static的,并不是完全像规范说的那样never static
 	//但是static的modifier应该也是类似,为了兼容,不然uid全变了,序列化什么的就完蛋了....
-
 
 }

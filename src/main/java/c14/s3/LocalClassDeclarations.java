@@ -14,3 +14,34 @@ public class LocalClassDeclarations {
 	}
 
 }
+
+class Global {
+	class Cyclic {
+	}
+
+	void foo() {
+		new Cyclic(); // create a Global.Cyclic
+		// class Cyclic extends Cyclic {} // circular definition
+		// 声明之后会hiding掉Global.Cyclic,再new就是这个而不是Global.Cyclic了
+		class Cyclic extends Global.Cyclic {
+		}
+		/*label*/
+		{
+			class Local {
+			}
+			{
+				//label这个作用域里面有这个class了,不能重复声明
+//				class Local {} // compile-time error
+			}
+//			class Local {} // compile-time error
+			class AnotherLocal {
+				void bar() {
+					class Local {
+					} // ok
+				}
+			}
+		}
+		class Local {
+		} // ok, not in scope of prior Local
+	}
+}

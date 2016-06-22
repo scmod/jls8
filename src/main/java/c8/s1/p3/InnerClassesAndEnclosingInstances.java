@@ -7,8 +7,11 @@ public class InnerClassesAndEnclosingInstances {
 	// 平常说的静态内部类并不是真正的内部类
 	// 英文一个nested class一个inner class...好像都差不多的样子
 	/**
-	 * 真.内部类包括 non-static member class, 非静态成员类 local class @see
-	 * LocalClassDeclarations anonymous class 匿名 @see AnonymousClassDeclarations
+	 * 真.内部类包括 non-static member class
+	 * 
+	 * 非静态成员类 local class @see LocalClassDeclarations
+	 * 
+	 * anonymous class 匿名 @see AnonymousClassDeclarations
 	 */
 	class Inner0 {
 
@@ -76,18 +79,45 @@ class Inner2Ex {
 // 啥是一个类的direct inner class呢...
 // 8开始多出来个or interface O,因为有了default方法,在这里面定义的就也变成了direct inner class
 interface Inf0 {
-	
+
 }
 
 interface OInf0 {
 	default void method() {
-		//anonymous class Direct Inner Class 1?
+		// anonymous class Direct Inner Class 1?
 		new Inf0() {
-			//member class of a anonymous class
+			// member class of a anonymous class
 			class DInnerC2 {
 			}
 		};
-		class DInnerC3 {
-		}
+	}
+}
+
+// 书上老说[immediately] enclosing type declaration 和 [direct] inner class...
+// 具体啥意思感觉也还不是很明白,大致是这么个感觉
+// Outt是他自己的zeroth lexically enclosing type declaration
+class Outt {
+	// Outt是Inne的immediately enclosing type declaration,
+	// 并且Inne不是出现在一个static context中,那Inne就是Outt的direct inner class
+	class Inne {
+		// 对Inne来说,他自己是他自己的第0个enclosing type declaration
+		// 而Outt就是他的第0个immediately enclosing type declaration
+		// 也就是他的第1个lexically enclosing type declaration
+	}
+
+}
+
+//跟上面的类似,Outtt的实例是他自己zeroth lexically enclosing instance
+class Outtt {
+	//对Innne来说,Outtt的实例就是他的第0个immediately enclosing instance
+	//也就是他的1'th lexically enclosing instance
+	class Innne {
+		// Innne的实例i跟Outtt是有关系的,就称Outtt是i的immediately enclosing instance
+		/*
+		 * The immediately enclosing instance of an object, if any, is
+		 * determined when the object is created(§15.9.2)
+		 */
+		//这个意思大致就是在创建Innne实例时候,需要确定Outtt已经创建了,
+		//类似就是new Outtt().new Innne()这样个意思
 	}
 }

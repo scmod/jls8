@@ -80,6 +80,8 @@ public class AnonymousConstructors {
 			e.printStackTrace();
 		}
 
+		methodFinal();
+
 	}
 
 	static void methodSA2() {
@@ -116,6 +118,28 @@ public class AnonymousConstructors {
 			}
 		}.showCtors();
 	}
+
+	// 为啥匿名内部类调用外部的值需要是final或者effectively final
+	static void methodFinal() {
+		int i = 0;
+		new Runnable() {
+			@Override
+			public void run() {
+				// i++,假设能重新赋值,那么i=1
+				System.out.println(i);
+			}
+
+			void showCtors() {
+				System.out.println(this.getClass().getDeclaredConstructors()[0]
+						.getParameters()[0].getModifiers());
+			}
+		}.showCtors();
+		// .run();System.out.println(i);//i=0
+		// run完后实际这里的i还是0,跟方法传参用"="赋值后只是方法里的参数值变了,原来值没变一个道理
+		// 这里的i会被匿名内部类当做参数传进去,即使在里面赋值,结果出来还是没变化,
+		// 会让人感觉有歧义,所以干脆只能final?规范里面暂时没找到...
+	}
+
 }
 
 class S {
@@ -151,4 +175,3 @@ class SC2 extends S {
 
 	}
 }
-

@@ -86,7 +86,6 @@ interface Inf2 {
 
 // default方法是不能同名的,static因为并不会被继承所以都没关系,
 // 抽象同名方法带泛型的话就呵呵了...
-//
 class Foo implements Inf1, Inf2 {
 
 	// 这个就没事,因为并没有从接口中继承静态方法
