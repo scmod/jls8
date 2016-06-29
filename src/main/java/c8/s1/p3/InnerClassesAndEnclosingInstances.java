@@ -6,6 +6,13 @@ public class InnerClassesAndEnclosingInstances {
 	// explicitly or implicitly declared static
 	// 平常说的静态内部类并不是真正的内部类
 	// 英文一个nested class一个inner class...好像都差不多的样子
+	private static int j = 0;
+	public static void main(String[] args) {
+		System.out.println(Inner0.class.getDeclaredConstructors()[0]);
+		System.out.println(NInner0.class.getDeclaredConstructors()[0]);
+		new InnerClassesAndEnclosingInstances.NInner0();
+	}
+	
 	/**
 	 * 真.内部类包括 non-static member class
 	 * 
@@ -21,7 +28,7 @@ public class InnerClassesAndEnclosingInstances {
 
 	// 带static的不算,接口是隐式的static的也不算...
 	static class NInner0 {
-
+		static int i = j;
 	}
 
 	interface NInf0 {

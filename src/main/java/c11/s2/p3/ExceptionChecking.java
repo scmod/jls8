@@ -4,6 +4,10 @@ import java.io.FileNotFoundException;
 
 public class ExceptionChecking {
 
+	public static void main(String[] args) throws Exception {
+		
+	}
+	
 	public ExceptionChecking() {
 		methodUnchecked();
 //		methodChecked();//可抛可catch,不过抛出的话以后new这个对象的地方都要抛出或者catch...

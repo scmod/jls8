@@ -1,8 +1,5 @@
 package c8.s8;
 
-import java.util.AbstractList;
-import java.util.ArrayList;
-import java.util.HashMap;
 
 public class ConstructorDeclarations {
 
@@ -13,10 +10,10 @@ public class ConstructorDeclarations {
 		new D<Double, Float>(1, 1l, 1.1, 1.1f);
 		/*
 		 * The constructor D<Integer,Long>(int, long, double, float) is
-		 * undefined 构造上好像一般不声明泛型类型... 比如这里的<A, B>并没有什么卵用,
-		 * 还是以class上的声明<T, U>为准,还让人看着绕,只是可以用来多传几个别的类型的参数...
+		 * undefined 构造上好像一般不声明泛型类型... 比如这里的<A, B>并没有什么卵用, 还是以class上的声明<T,
+		 * U>为准,还让人看着绕,只是可以用来多传几个别的类型的参数...
 		 */
-//		 new D<Integer, Long>(1, 1l, 1.1, 1.1f);
+		// new D<Integer, Long>(1, 1l, 1.1, 1.1f);
 	}
 
 	public ConstructorDeclarations(String str) {
@@ -53,7 +50,7 @@ class D<T, U> {
 	public <A, B> D(A a, B b, T t, U u) {
 		//
 	}
-	
+
 }
 
 class Outer {
@@ -61,17 +58,17 @@ class Outer {
 	}
 }
 
-//只有Outer实例化了,A才能调用到父类Inner的构造方法
+// 只有Outer实例化了,A才能调用到父类Inner的构造方法
 class QA extends Outer.Inner {
 	QA() {
-		//默认的话调用super()类似于调用new Inner().constructor()
-		//这样就类似于变成new Outer().new Inner().constructor()..
+		// 默认的话调用super()类似于调用new Inner().constructor()
+		// 这样就类似于变成new Outer().new Inner().constructor()..
 		new Outer().super();
 	}
 }
 
 class QB extends Outer.Inner {
-	//如果要对Outer里面什么东西设置下,大概就用这样实例化完弄好Outer再传进来
+	// 如果要对Outer里面什么东西设置下,大概就用这样实例化完弄好Outer再传进来
 	QB(Outer ref) {
 		ref.super();
 	}

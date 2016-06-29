@@ -18,7 +18,7 @@ public class LocalClassDeclarations {
 class Global {
 	class Cyclic {
 	}
-
+	int i;
 	void foo() {
 		new Cyclic(); // create a Global.Cyclic
 		// class Cyclic extends Cyclic {} // circular definition
@@ -36,6 +36,7 @@ class Global {
 //			class Local {} // compile-time error
 			class AnotherLocal {
 				void bar() {
+					int i = Global.this.i;
 					class Local {
 					} // ok
 				}

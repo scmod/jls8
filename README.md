@@ -51,4 +51,8 @@ The fully qualified name of the type "array of array of array of array of String
 
 
 顺路发现编译器会把new XXX().method()拆成new XXX();method();这样调用如果method()是static的话,
-虽然一般不会通过new调用静态方法
+虽然一般不会通过实例调用静态方法
+
+为什么一个静态内部类不能通过new Outer().new Inner()来创建而只能通过new Outer.Inner():
+我想大概是因为内部类实例化需要通过隐藏的构造方法传入外部类实例,而静态内部类并没有any lexically enclosing instances,
+更不会提供默认的构造方法用来传入enclosing instances.
